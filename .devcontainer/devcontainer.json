@@ -19,8 +19,8 @@
       "settings": {
         "[python]": {
           "editor.codeActionsOnSave": {
-            "source.fixAll": true,
-            "source.organizeImports": true
+            "source.fixAll": "always",
+            "source.organizeImports": "always"
           }
         },
         "coverage-gutters.customizable.context-menu": true,
@@ -44,7 +44,7 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers-contrib/features/poetry:2": {},
+    "ghcr.io/devcontainers-extra/features/poetry:2": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/python:1": {

@@ -537,9 +537,14 @@ class WLED:
             receive: Receive broadcast packets.
 
         """
-        sync = {"send": send, "recv": receive}
-        sync = {k: v for k, v in sync.items() if v is not None}
-        await self.request("/json/state", method="POST", data={"udpn": sync})
+        sync_details: dict[str, bool | int] = {}
+        if send is not None:
+            sync_details["send"] = send
+        if receive is not None:
+            sync_details["recv"] = receive
+            sync_details["rgrp"] = 7 if receive is True else 0
+
+        await self.request("/json/state", method="POST", data={"udpn": sync_details})
 
     async def nightlight(
         self,
